@@ -9,6 +9,17 @@ $btn-link-hover-color:        var(--#{$prefix}link-hover-color);
 
     // color-variables (HSL)
 
+    --amber-900-hsl: 30, 70%, 20%;   /* Darkest */
+    --amber-800-hsl: 31, 70%, 26%;
+    --amber-700-hsl: 32, 70%, 32%;
+    --amber-600-hsl: 33, 70%, 38%;   /* Base #c26e00 */
+    --amber-500-hsl: 33, 70%, 44%;
+    --amber-400-hsl: 35, 70%, 52%;
+    --amber-300-hsl: 34, 70%, 44%;
+    --amber-200-hsl: 37, 70%, 72%;
+    --amber-100-hsl: 33, 70%, 85%;
+    --amber-50-hsl: 33, 90%, 95%;    /* Lightest */
+
     --blue-900-hsl: 243, 72%, 25%;
     --blue-800-hsl: 239, 70%, 32%;
     --blue-700-hsl: 235, 68%, 38%;
@@ -19,6 +30,8 @@ $btn-link-hover-color:        var(--#{$prefix}link-hover-color);
     --blue-200-hsl: 212, 100%, 79%;
     --blue-100-hsl: 207, 100%, 88%;
     --blue-50-hsl: 198, 100%, 97%;
+
+    --blue-50-hsl: 34, 100%, 38%;
 
     --green-900-hsl: 153, 54%, 20%;
     --green-800-hsl: 145, 57%, 25%;
@@ -96,6 +109,17 @@ $btn-link-hover-color:        var(--#{$prefix}link-hover-color);
     --emerald-200-hsl: 154, 77%, 68%;
     --emerald-100-hsl: 149, 89%, 82%;
     --emerald-50-hsl: 145, 100%, 94%;
+
+    --amber-900: hsl(var(--amber-900-hsl));
+    --amber-800: hsl(var(--amber-800-hsl));
+    --amber-700: hsl(var(--amber-700-hsl));
+    --amber-600: hsl(var(--amber-600-hsl));
+    --amber-500: hsl(var(--amber-500-hsl));
+    --amber-400: hsl(var(--amber-400-hsl));
+    --amber-300: hsl(var(--amber-300-hsl));
+    --amber-200: hsl(var(--amber-200-hsl));
+    --amber-100: hsl(var(--amber-100-hsl));
+    --amber-50: hsl(var(--amber-50-hsl));
 
     --blue-900: hsl(var(--blue-900-hsl));
     --blue-800: hsl(var(--blue-800-hsl));
@@ -185,6 +209,7 @@ $btn-link-hover-color:        var(--#{$prefix}link-hover-color);
     --emerald-100: hsl(var(--emerald-100-hsl));
     --emerald-50: hsl(var(--emerald-50-hsl));
 
+    --amber: var(--amber-500);
     --blue: var(--blue-500);
     --green: var(--green-500);
     --red: var(--red-500);

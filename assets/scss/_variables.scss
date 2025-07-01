@@ -132,6 +132,7 @@ $grays: (
 // fusv-enable
 
 // scss-docs-start color-variables
+$amber:    #c26e00; /*#4d80ff*/
 $blue:    #0066ff; /*#4d80ff*/
 $indigo:  #6610f2;
 $purple:  #7952B3;
@@ -146,6 +147,7 @@ $cyan:    #17a2b8;
 
 // scss-docs-start colors-map
 $colors: (
+  "amber":       $amber,
   "blue":       $blue,
   "indigo":     $indigo,
   "purple":     $purple,
@@ -163,7 +165,7 @@ $colors: (
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary:       $blue;
+$primary:       $amber;
 $secondary:     $gray-600;
 $success:       $green;
 $info:          $cyan;

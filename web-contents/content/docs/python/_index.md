@@ -2,9 +2,7 @@
 title: Python
 is_title_visible: true
 description: Fleare CLI Documentation for python client
-cover_image: >-
-  https://www.bakemyweb.com/files/public/32/15/67b778664b7fb7001ed53215/i/c1/6e/67c0b16aa33280001e2dc16e/original?name=python-programming-language-icon-c47daf.webp&mimetype=image/webp&cd=inline
-
+icon: data_object
 date: '2025-06-17T16:05:10.028Z'
 is_breadcrumb_visible: true
 is_menu_transparent: false

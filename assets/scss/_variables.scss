@@ -9,9 +9,9 @@ $fw-medium: 600;
 //Custom Fonts
 // $font-family-secondary:     'Nunito', sans-serif;
 
-$text-default:              #3C4257;
+$text-default:              #a2a6b3;
 $muted:                     #6b7686;
-$dark:                      #3c4858;
+$dark:                      #181921;
 $btn-color:                 #ffffff;
 $body-color:                $text-default;
 
@@ -501,7 +501,7 @@ $position-values: (
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white;
+$body-bg:                   $dark;
 $body-text-align:           null;
 
 // Utilities maps

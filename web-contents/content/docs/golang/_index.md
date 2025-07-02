@@ -2,8 +2,7 @@
 title: GoLang
 is_title_visible: true
 description: Fleare CLI Documentation for Go Lang
-cover_image: >-
-  https://www.bakemyweb.com/files/public/32/15/67b778664b7fb7001ed53215/i/f0/00/67c0b282710b51001ebef000/original?name=Go-Logo.png&mimetype=image/png&cd=inline
+icon: data_object
 
 date: '2025-06-17T16:05:23.336Z'
 is_breadcrumb_visible: true

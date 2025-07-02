@@ -2,8 +2,7 @@
 title: Java
 is_title_visible: true
 description: Fleare CLI Documentation for JAVA client
-cover_image: >-
-  https://www.bakemyweb.com/files/public/32/15/67b778664b7fb7001ed53215/i/c1/83/67c0b280a33280001e2dc183/original?name=java.webp&mimetype=image/webp&cd=inline
+icon: data_object
 
 date: '2025-06-17T16:04:32.840Z'
 is_breadcrumb_visible: true

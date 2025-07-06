@@ -22,7 +22,7 @@ body {
 
 /* Hero Section Layout */
 .hero {
-    background-image: url(https://anydesk.com/_static/img/hero/darkmode/anydesk-arrow-bg.png);
+    background-image: url(/docs/images/arrow-bg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -69,15 +69,15 @@ body {
 }
 
 .hero-image {
-    /* flex: 1 1 30%; */
+    flex: 1 1 30%;
     text-align: center;
-    opacity: 0.3;
 }
 
 .hero-image img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    opacity: 30%;
     /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.05); */
 }
 

@@ -2,21 +2,23 @@
 <div id="top-header" class="top-header d-print-none">
     <div class="header-bar d-flex justify-content-between">
         <div class="d-flex align-items-center">
+            <button id="close-sidebar" class="btn btn-icon btn-soft">
+                <span class="material-icons size-20 menu-icon align-middle">menu</span>
+            </button>
+            
             <a href='{{ with .Site.Params.docs.logoLinkURL }}{{ . }}{{ else }}{{ relLangURL "" }}{{ end }}' class="logo-icon me-3" aria-label="HomePage" alt="HomePage">
                 <div class="small">
-                    {{ with resources.Get "images/logos/mark.svg" }}
+                    {{ with resources.Get "images/logos/logo_small__.svg" }}
                             {{ .Content | safeHTML }}
                     {{ end }}
                 </div>
                 <div class="big">
-                    {{ with resources.Get "images/logos/logo.svg" }}
+                    {{ with resources.Get "images/logos/title_logo.svg" }}
                             {{ .Content | safeHTML }}
                     {{ end }}
                 </div>
             </a>
-            <button id="close-sidebar" class="btn btn-icon btn-soft">
-                <span class="material-icons size-20 menu-icon align-middle">menu</span>
-            </button>
+            
             {{ if and (.Site.Params.docsearch.appID) (.Site.Params.docsearch.apiKey) -}}
             <span><div id="docsearch"></div></span>
             {{ end }}

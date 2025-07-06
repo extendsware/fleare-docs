@@ -1,123 +1,63 @@
+{{ $style := resources.Get "css/home.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
 {{ $sectionTitle := .Scratch.Get "sectionTitle" }}
 {{ with (index .Site.Data.landing $sectionTitle) }}
 {{ if eq .enable true }}
 <!-- Hero Start -->
-{{ with .backgroundImage }}
-    {{ $path := .path | default "images" }}
-    {{ $filename := .filename }}
-    {{ $pathDesktop := printf "%s/%s" $path $filename.desktop }}
-    {{ $pathMobile := printf "%s/%s" $path $filename.mobile }}
-        <style>
-            .hero {
-                {{ with $filename.desktop }}
-                    {{ with resources.Get $pathDesktop }}
-                        @media (min-width: 768px) {
-                            background-image: url("{{ .RelPermalink }}");
-                        }
-                    {{ end }}
-                {{ end }}
-                {{ with $filename.mobile }}
-                    {{ with resources.Get $pathMobile }}
-                        background-image: url("{{ .RelPermalink }}");
-                    {{ end }}
-                {{ end }}
-            }
-        </style>
-{{ end }}
-<section id="{{ $sectionTitle }}" class="d-table w-100 overflow-hidden hero">
-    <div class="container">
-        <div class="row mt-5 align-items-center">
 
-            <div class="col-lg-6 col-md-6">
-                <div class="title-heading">
-                    {{ with .badge }}
-                    <span class="badge {{ if eq .pill true }}rounded-pill{{ end }} bg-{{ if eq .soft true }}soft-{{ else }}hard-{{ end }}{{ .color }} mb-1">{{ .text }}</span>
-                    {{ end }}
-                    <h4 class="heading mt-0 mb-3">
-                        {{ with .titleLogo }}
-                            {{ $path := .path | default "images" }}
-                            {{ $filename := .filename }}
-                            {{ $height := .height | default "70px" }}
-                            {{ $alt := .alt | default "logo image" }}
-                            {{ $path := printf "%s/%s" $path $filename }}
-                            {{ with $filename }}
-                                <span>
-                                    {{ with $image := resources.Get $path }}
-                                        {{ if eq .MediaType.SubType "svg" }}
-                                            {{ .Content | safeHTML }}
-                                        {{ else }}
-                                            {{ with .Resize (printf "%dx%d webp q85 drawing Lanczos" .Width .Height) }}
-                                                <img src="{{ .RelPermalink }}" alt="{{ $alt }}" height="{{ $height }}">
-                                            {{ end }}
-                                        {{ end }}
-                                    {{ end }}
-                                </span>
-                            {{ end }}
-                        {{ end }}
-                        {{ with .title }}{{ . }}{{ end }}
-                    </h4>
-                    {{ with .subtitle }}
-                    <p class="para-desc text-muted mb-0">{{ . | markdownify }}</p>
-                    {{ end }}
-
-                    <div class="mt-3">
-                        {{ with .ctaButton }}
-                            <a href="{{ relLangURL .url }}" class="btn btn-lg btn-primary me-2 mt-2">
-                                {{ with .icon }}
-                                    <span class="material-icons align-middle">{{ . }}</span>
-                                {{ end }}
-                                {{ with .btnText }}
-                                    {{ . }}
-                                {{ end }}
-                            </a>
-                        {{ end }}
-                        {{ with .cta2Button }}
-                        <a href="{{ relLangURL .url }}" class="btn btn-lg btn-outline-primary mt-2">
-                            {{ with .icon }}
-                                <span class="material-icons align-middle">{{ . }}</span>
-                            {{ end }}
-                            {{ with .btnText }}
-                                {{ . }}
-                            {{ end }}
-                        </a>
-                        {{ end }}
-                    </div>
-
-                    {{ with .info }}
-                    <p class="text-muted mb-0 mt-3">{{ . | markdownify }}</p>
-                    {{ end }}
+<!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <!-- Left Side: Content -->
+            <div class="hero-text">
+                <h1>Fast, Flexible, Fearless 
+                </br>Data Storage</h1>
+                <p>Fleare delivers high-performance distributed in-memory data storage with native support for strings, JSON objects, arrays and more. 
+                    Built in Go for speed and reliability, it provides command line interface with modern flexibility to handle
+                     complex data structures effortlessly</p>
+                <div class="group-btns">
+                    <a href="/docs/download" class="btn-download">Download Now</a>
+                    <a href="/docs" class="btn-download-outline">Get Started</a>
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-6 mt-4 pt-4 mt-sm-0 pt-sm-0">
-                {{ with .image }}
-                    {{ $path := .path | default "images" }}
-                    {{ $filename := .filename }}
-                    {{ $alt := .alt | default "hero image" }}
-                    {{ $boxShadow := .boxShadow | default false }}
-                    {{ $rounded := .rounded | default false }}
-                    {{ $path := printf "%s/%s" $path $filename }}
-                    {{ with $filename }}
-                        <div class="ms-lg-4">
-                            <div class="classic-hero-image">
-                                {{ with $image := resources.Get $path }}
-                                    {{ if eq .MediaType.SubType "svg" }}
-                                        {{ .Content | safeHTML }}
-                                    {{ else }}
-                                        {{ with .Resize (printf "%dx%d webp q85 drawing Lanczos" .Width .Height) }}
-                                            <img src="{{ .RelPermalink }}" class="{{ if $boxShadow }}shadow-lg{{ else }}{{ end }} mx-auto d-block {{ if $rounded }}rounded-top-4{{ else }}{{ end }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $alt }}">
-                                        {{ end }}
-                                    {{ end }}
-                                {{ end }}
-                            </div>
-                        </div>
-                    {{ end }}
-                {{ end }}
-            </div><!--end col-->
+            <!-- Right Side: Image -->
+            
+        </div>
+        <div class="hero-image">
+                <img src="/docs/images/home_hero.svg" alt="App Preview">
+            </div>
+    </section>
 
-        </div><!--end row-->
-    </div> <!--end container-->
-</section><!--end section-->
+    <!-- Cards Section -->
+    <section class="features">
+        <h3 class="features-header">
+            <span class="features-header-big-text">High-Performance</span> 
+            <span class="features-header-gradiant-text ">key-value store</span> 
+            that adapts to your data needs
+        </h3>
+        <div class="container download-card-container">
+            <div class="download-card">
+                <img src="/docs/images/cli.png" alt="">
+                <h4>Command Line Support Future-Ready</h4>
+                <p>Command Line interface, Fleare offers familiar commands enhanced with modern capabilities. Features include JSON path operations, list filtering, reference linking, and distributed architecture designed for today's scalable applications.</p>
+                <a href="docs/cli-commands">Learn More</a>
+            </div>
+            <div class="download-card">
+                <img src="/docs/images/key-value.png" alt="">
+                <h4>Beyond Key-Value: Store Everything</h4>
+                <p>More than traditional key-value storage, Fleare handles complex JSON operations, array manipulations, and nested data structures. With multiple client support and configurable logging, it's the modern database solution for applications requiring cache data management.</p>
+                <a href="docs/cli-commands/json-commands">Learn More</a>
+            </div>
+            <div class="download-card">
+                <img src="/docs/images/data-set.png" alt="">
+                <h4>One Database, Every Data Type</h4>
+                <p>Seamlessly store strings, JSON objects, and arrays in one powerful system. Fleare's comprehensive command set includes JSON, LIST, NUMBER, STRING etc and advanced operations like JSON.SETREF for creating relationships between documents—all with enterprise-grade performance.</p>
+                <a href="docs/configure/config">Learn More</a>
+            </div>
+        </div>
+    </section>
 <!-- Hero End -->
 {{ end }}
 {{ end }}

@@ -1,10 +1,3 @@
-/* Template Name: LotusLabs Docs
-   Author: Colin Wilson
-   E-mail: colin@aigis.uk
-   Created: October 2022
-   Version: 1.0.0
-   File Description: Main JS file of the docs template
-*/
 
 
 /*********************************/

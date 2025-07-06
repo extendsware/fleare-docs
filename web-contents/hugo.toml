@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "http://localhost:1313"
 languageCode = "en-GB"
 contentDir = "content"
 enableEmoji = true
@@ -124,7 +124,7 @@ enableGitInfo = false
     #     negativeEventName = "Negative Feedback"
     #     positiveFormTitle = "What did you like?"
     #     negativeFormTitle = "What went wrong?"
-    #     successMsg = "Thank you for helping to improve Lotus Docs' documentation!"
+    #     successMsg = "Thank you for helping to improve Fleare' documentation!"
     #     errorMsg = "Sorry! There was an error while attempting to submit your feedback!"
     #     positiveForm = [
     #       ["Accurate", "Accurately describes the feature or option."],

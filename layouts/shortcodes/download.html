@@ -1,0 +1,61 @@
+
+{{ $style := resources.Get "css/home.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+<section class="features">
+	<h3 class="features-header"><span class="">Download </span> Fleare <span
+			class="features-header-gradiant-text ">Binary</span></h3>
+	<div class="container download-card-container">
+		<div class="download-card card">
+			<img src="/docs/images/linux.svg" alt="">
+			<p>Get Fleare v1.0.1 for Linux systems. Choose your architecture: AMD64 or ARM64. Includes installation script, systemd service configuration, and automatic setup. Simply download, extract, and run the included install script with sudo privileges for seamless deployment.</p>
+			
+			<div class="download-cont">
+				<a href="https://www.fleare.com/download/binary/fleare-1-0-1-linux-amd64.tar.gz" class="btn-download me-2 mt-2">
+					<span class="material-icons align-middle">download</span>
+					Linux (amd 64)
+				</a>
+
+				<a href="https://www.fleare.com/download/binary/fleare-1-0-1-linux-arm64.tar.gz" class="btn-download me-2 mt-2">
+					<span class="material-icons align-middle">download</span>
+					Linux (arm 64)
+				</a>
+			</div>
+
+		</div>
+		<div class="download-card card">
+			<img src="/docs/images/finder.svg" alt="">
+			<p>Get Fleare v1.0.1 for Mac OS systems. Choose your architecture: AMD64 or Apple Silicon (arm64). Includes installation script, systemd service configuration, and automatic setup. Simply download, extract, and run the included install script with sudo privileges for seamless deployment.</p>
+			
+			<div class="download-cont">
+				<a href="https://www.fleare.com/download/binary/fleare-1-0-1-darwin-arm64.tar.gz" class="btn-download me-2 mt-2">
+					<span class="material-icons align-middle">download</span>
+					Apple Silicon (arm 64)
+				</a>
+
+				<a href="https://www.fleare.com/download/binary/fleare-1-0-1-darwin-amd64.tar.gz" class="btn-download me-2 mt-2">
+				<span class="material-icons align-middle">download</span>
+				Mac OS (amd 64)
+				</a>
+			</div>
+			
+		</div>
+		<div class="download-card card">
+			<img src="/docs/images/windows.svg" alt="">
+			<p>Get Fleare v1.0.1 for Windows systems. Choose your architecture: AMD64 or ARM64. Includes installation script, systemd service configuration, and automatic setup. Simply download, extract, and run the included install script with sudo privileges for seamless deployment..</p>
+			
+			<div class="download-cont">
+				<h4>Coming soon...</h4>
+				<!-- <a href="https://www.fleare.com/download/binary/fleare-1-0-1-darwin-arm64.tar.gz" class="btn-download me-2 mt-2">
+				<span class="material-icons align-middle">download</span>
+				Windows (amd 64)
+				</a>
+
+				<a href="https://www.fleare.com/download/binary/fleare-1-0-1-darwin-arm64.tar.gz" class="btn-download me-2 mt-2">
+					<span class="material-icons align-middle">download</span>
+					Windows (arm 64)
+				</a> -->
+			</div>
+		</div>
+	</div>
+</section>

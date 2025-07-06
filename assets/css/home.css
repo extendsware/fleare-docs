@@ -1,0 +1,273 @@
+
+/* Global reset */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #181921;
+    color: #f5f5f5;
+    line-height: 1.6;
+    font-family: "Quicksand", sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+} */
+
+/* Hero Section Layout */
+.hero {
+    background-image: url(https://anydesk.com/_static/img/hero/darkmode/anydesk-arrow-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.hero-grid .group-btns {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+
+.hero-text {
+    flex: 1 1 60%;
+    color: #fff;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: -webkit-linear-gradient(45deg, #ef443b, #EE8D3B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Poppins", sans-serif;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #bbbbbb;
+}
+
+.hero-image {
+    /* flex: 1 1 30%; */
+    text-align: center;
+    opacity: 0.3;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.05); */
+}
+
+/* Button */
+.btn-download {
+    background: #ef443b;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+}
+
+.btn-download:hover {
+    background: #ec2218;
+}
+
+.btn-download:hover {
+    background: -webkit-linear-gradient(45deg, #ef443b, #EE8D3B);
+    color: #fff;
+}
+
+.btn-download::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background: linear-gradient(90deg, #ef443b 0%, #ef443b 100%) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+.btn-download:hover::before {
+    background-image: linear-gradient(90deg, #ef443b 0%, #EE8D3B 100%) !important;
+    border: 0;
+}
+
+.btn-download-outline {
+    background: transparent;
+    color: #ef443b;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+}
+
+.btn-download-outline:hover {
+    background: -webkit-linear-gradient(45deg, #ef443b, #EE8D3B);
+    color: #fff;
+}
+
+.btn-download-outline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background: linear-gradient(90deg, #ef443b 0%, #ef443b 100%) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+.btn-download-outline:hover::before {
+    background-image: linear-gradient(90deg, #ef443b 0%, #EE8D3B 100%) !important;
+    border: 0;
+}
+
+/* Features Section */
+.features {
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.features-header {
+    font-size: 2.5rem;
+    font-weight: normal;
+    font-family: "Poppins", sans-serif;
+}
+
+.features-header-big-text {
+    font-size: 3rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.features-header-gradiant-text {
+    background: -webkit-linear-gradient(45deg, #ef443b, #EE8D3B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.download-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.download-card {
+    background-position: center;
+    background-size: cover;
+    padding: 1.5rem;
+    /* border-radius: 8px; */
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease;
+    height: auto;
+    border: 1px solid #5c5c5b;
+    border-radius: 4px;
+}
+
+.download-card:hover {
+    transform: translateY(-5px);
+}
+
+.download-card img {
+    width: 3rem;
+    margin-bottom: 20px;
+}
+
+.download-card p {
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.download-card h4 {
+    color: #f4f0f0 !important;
+    margin-bottom: 20px;
+}
+
+.download-card a {
+    background: -webkit-linear-gradient(45deg, #ef443b, #EE8D3B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1rem;
+    font-weight: bold
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        height: 100vh;
+        padding: 3rem 1rem;
+    }
+
+    .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-grid .group-btns {
+        justify-content: center;
+    }
+
+    .hero-text,
+    .hero-image {
+        flex: 1 1 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .download-card-container {
+        flex-wrap: nowrap;
+    }
+
+    .download-card {
+        width: 30%;
+    }
+}

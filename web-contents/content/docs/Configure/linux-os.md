@@ -39,8 +39,8 @@ This document provides step-by-step instructions for installing and configuring 
 
 #### Download the installation file and extract zip file
 
- 1. Download file 👉 [infleare-1-0-1-linux-amd64.tar.gz](https://www.bakemyweb.com/files/public/32/15/67b778664b7fb7001ed53215/d/8f/85/67ceaaf7015b80001e818f85?name=infleare-1-0-1-linux-amd64.tar.gz&mimetype=application/x-gzip&cd=attachment)
- 2. Unzip the Installation zip file (`infleare-1-0-1-linux-amd64.tar.gz`)
+ 1. Download file 👉 [fleare-1-0-1-linux-amd64.tar.gz](https://www.bakemyweb.com/files/public/32/15/67b778664b7fb7001ed53215/d/8f/85/67ceaaf7015b80001e818f85?name=fleare-1-0-1-linux-amd64.tar.gz&mimetype=application/x-gzip&cd=attachment)
+ 2. Unzip the Installation zip file (`fleare-1-0-1-linux-amd64.tar.gz`)
  3. Ensure the script has execution permissions.
  4. Read `README.md` for installation guide.
 

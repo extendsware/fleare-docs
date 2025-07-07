@@ -2,8 +2,6 @@
 title: MAP Commands
 is_title_visible: false
 description: ''
-cover_image: >-
-  https://www.bakemyweb.com/files/public/82/88/6857019939714a001e078288/i/5c/5e/685701b8a14834001f8a5c5e/original?name=logo-large.png&mimetype=image/png&cd=inline
 
 date: '2025-06-24T15:23:03.223Z'
 is_breadcrumb_visible: true

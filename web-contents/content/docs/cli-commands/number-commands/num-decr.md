@@ -5,8 +5,6 @@ is_title_visible: false
 description: >-
   The NUM.DECR command decrements the numeric value stored at the specified key
   by a given amount.
-cover_image: >-
-  https://www.bakemyweb.com/files/public/82/88/6857019939714a001e078288/i/5c/5e/685701b8a14834001f8a5c5e/original?name=logo-large.png&mimetype=image/png&cd=inline
 
 date: '2025-06-20T10:56:54.541Z'
 authors: "Parash Maity"

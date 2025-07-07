@@ -3,7 +3,6 @@ draft: false
 title: SESSION
 is_title_visible: false
 description: The SESSION command returns the current session information
-cover_image: 'https://www.bakemyweb.com/preview1/docs.fleare.com/box.png'
 date: '2021-09-01T05:26:12.863Z'
 authors: "Parash Maity"
 is_breadcrumb_visible: true

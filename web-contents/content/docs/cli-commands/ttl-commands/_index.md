@@ -2,7 +2,6 @@
 title: TTL Commands
 is_title_visible: false
 description: ''
-cover_image: 'https://www.bakemyweb.com/preview1/docs.fleare.com/list.png'
 
 date: '2025-06-20T18:07:08.488Z'
 is_breadcrumb_visible: true

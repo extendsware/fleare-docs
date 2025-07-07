@@ -5,7 +5,6 @@ is_title_visible: false
 description: >-
   The EXISTS command is used to verify the existence of one or more keys in the
   database.
-cover_image: 'https://www.bakemyweb.com/preview1/docs.fleare.com/box.png'
 date: '2025-06-18T17:45:32.565Z'
 authors: "Parash Maity"
 is_breadcrumb_visible: true

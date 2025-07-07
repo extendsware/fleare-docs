@@ -3,7 +3,6 @@ draft: false
 title: SET
 is_title_visible: false
 description: The SET command is used to store a key-value pair in the database.
-cover_image: 'https://www.bakemyweb.com/preview1/docs.fleare.com/box.png'
 date: '2025-06-18T11:50:48.189Z'
 authors: "Parash Maity"
 is_breadcrumb_visible: true

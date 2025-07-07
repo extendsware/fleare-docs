@@ -3,7 +3,6 @@ draft: false
 title: DELETE
 is_title_visible: false
 description: Deletes a key and its associated value from the database.
-cover_image: 'https://www.bakemyweb.com/preview1/docs.fleare.com/box.png'
 date: '2025-06-18T18:28:19.344Z'
 authors: "Parash Maity"
 is_breadcrumb_visible: true

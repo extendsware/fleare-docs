@@ -5,8 +5,6 @@ is_title_visible: false
 description: >-
   The MAP.CSET command is used to create or overwrite a map at a specified key
   with a single key-value entry.
-cover_image: >-
-  https://www.bakemyweb.com/files/public/82/88/6857019939714a001e078288/i/5c/5e/685701b8a14834001f8a5c5e/original?name=logo-large.png&mimetype=image/png&cd=inline
 
 date: '2025-06-24T15:30:29.704Z'
 authors: "Parash Maity"

@@ -5,8 +5,6 @@ is_title_visible: false
 description: >-
   The JSON.ADD command allows users to insert or append a key-value pair into an
   existing JSON object stored at a given key.
-cover_image: >-
-  https://www.bakemyweb.com/files/public/82/88/6857019939714a001e078288/i/5c/5e/685701b8a14834001f8a5c5e/original?name=logo-large.png&mimetype=image/png&cd=inline
 date: '2025-06-22T13:53:39.830Z'
 authors: "Parash Maity"
 is_breadcrumb_visible: true

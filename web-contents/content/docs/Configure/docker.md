@@ -12,27 +12,27 @@ tags: ["Docker"]
 ---
 
 ---
-### Docker Deployment
+#### Docker Deployment
 
 ---
 
-### Running with `docker run`
+#### Running with `docker run`
 
 You can start the Fleare service using the `docker run` command while passing a YAML configuration as an environment variable.
 
-### Command:
+#### Command:
 
 ```bash 
 docker run -p 9219:9219 --name fleare_service --restart unless-stopped extendsware/fleare:latest
 ```
 
-### Command with config:
+#### Command with config:
 
 ```bash 
 docker run -e "config=$(cat config.yaml)" -p 9219:9219 --name fleare_service --restart unless-stopped extendsware/fleare:latest
 ```
 
-### Explanation:
+#### Explanation:
 
 *   `-e "config=$(cat config.yaml)"`: Reads the contents of `config.yaml` and passes it as an environment variable.
 
@@ -44,11 +44,11 @@ docker run -e "config=$(cat config.yaml)" -p 9219:9219 --name fleare_service --r
 
 *   `extendsware/fleare:latest`: Uses the latest version of the Fleare image.
 
-### Running Fleare with Docker Compose
+#### Running Fleare with Docker Compose
 
 You can use `docker-compose` to define and manage the Fleare service.
 
-### `docker-compose.yml` Example:
+#### `docker-compose.yml` Example:
 
 ```yaml 
 version: '3.8'
@@ -71,11 +71,13 @@ services:
               role: "root"
 ```
 
-### Output
+#### Output
 
- 
+{{< image src="/docs/images/docker-compose-start.png" alt="docker run output" width="100%" >}}
 
-### Explanation:
+<!-- ![docker run output](https:fleare.com/docs/images/docker-compose-start.png) -->
+
+#### Explanation:
 
 *   **`version: '3.8'`**: Specifies the Docker Compose file format version.
 
@@ -97,7 +99,7 @@ services:
                 \- Uses `basic` authentication.
                 \- Defines users with usernames and passwords.
 
-### Deploying with Docker Compose
+#### Deploying with Docker Compose
 
 To deploy using Docker Compose, run:
 
@@ -105,13 +107,13 @@ To deploy using Docker Compose, run:
 docker-compose up -d
 ```
 
-### Stopping the Service
+#### Stopping the Service
 
 ```bash 
 docker-compose down
 ```
 
-### Verifying the Deployment
+#### Verifying the Deployment
 
 After deployment, verify the service is running with:
 

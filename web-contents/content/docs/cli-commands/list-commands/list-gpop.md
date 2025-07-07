@@ -5,8 +5,6 @@ is_title_visible: false
 description: >-
   The LIST.GPOP Removes and returns the last element from the list stored at the
   specified key.
-cover_image: >-
-  https://www.bakemyweb.com/files/public/82/88/6857019939714a001e078288/i/5c/5e/685701b8a14834001f8a5c5e/original?name=logo-large.png&mimetype=image/png&cd=inline
 
 date: '2025-06-20T16:02:43.069Z'
 authors: "Parash Maity"

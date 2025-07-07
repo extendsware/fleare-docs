@@ -2,8 +2,6 @@
 title: CLI Commands
 is_title_visible: true
 description: Fleare CLI Documentation for Bash
-cover_image: >-
-  https://www.bakemyweb.com/files/public/82/88/6857019939714a001e078288/i/5c/ac/6857052fa14834001f8a5cac/original?name=monochrome_light.png&mimetype=image/png&cd=inline
 date: '2021-07-01T05:26:12.863Z'
 is_breadcrumb_visible: true
 is_menu_transparent: false

@@ -6,8 +6,6 @@ description: >-
   The LIST.POP command removes (pops) a single element from the beginning (index
   0) of a list stored at a specified key. If the list becomes empty after the
   pop, the key is removed from the store.
-cover_image: >-
-  https://www.bakemyweb.com/files/public/82/88/6857019939714a001e078288/i/5c/5e/685701b8a14834001f8a5c5e/original?name=logo-large.png&mimetype=image/png&cd=inline
 
 date: '2025-06-20T12:40:31.779Z'
 authors: "Parash Maity"

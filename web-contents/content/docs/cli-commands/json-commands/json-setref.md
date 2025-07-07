@@ -6,8 +6,6 @@ description: >-
   The JSON.SETREF command stores a JSON object at a specified key in the
   database and simultaneously replaces specified fields with reference pointers
   to other keys.
-cover_image: >-
-  https://www.bakemyweb.com/files/public/82/88/6857019939714a001e078288/i/5c/5e/685701b8a14834001f8a5c5e/original?name=logo-large.png&mimetype=image/png&cd=inline
 date: '2025-06-23T15:43:09.680Z'
 authors: "Parash Maity"
 is_breadcrumb_visible: true

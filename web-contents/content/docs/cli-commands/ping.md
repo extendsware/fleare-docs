@@ -3,7 +3,6 @@ draft: false
 title: PING
 is_title_visible: false
 description: Sends a PING command to the server and receives a PONG response.
-cover_image: 'https://www.bakemyweb.com/preview1/docs.fleare.com/box.png'
 date: '2021-09-01T05:26:12.863Z'
 authors: "Parash Maity"
 is_breadcrumb_visible: true

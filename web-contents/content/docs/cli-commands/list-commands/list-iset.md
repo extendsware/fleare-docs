@@ -5,8 +5,6 @@ is_title_visible: false
 description: >-
   The LIST.ISET command allows users to insert or replace an element at a
   specified index in a list stored at the provided key. 
-cover_image: >-
-  https://www.bakemyweb.com/files/public/82/88/6857019939714a001e078288/i/5c/5e/685701b8a14834001f8a5c5e/original?name=logo-large.png&mimetype=image/png&cd=inline
 
 date: '2025-06-20T15:54:55.178Z'
 authors: "Parash Maity"

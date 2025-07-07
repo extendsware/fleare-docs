@@ -2,7 +2,6 @@
 title: Number Commands
 is_title_visible: false
 description: ''
-cover_image: 'https://www.bakemyweb.com/preview1/docs.fleare.com/list.png'
 
 date: '2025-06-20T07:46:28.346Z'
 is_breadcrumb_visible: true

@@ -2,7 +2,6 @@
 title: List Commands
 is_title_visible: false
 description: ''
-cover_image: 'https://www.bakemyweb.com/preview1/docs.fleare.com/list.png'
 
 date: '2025-06-19T16:43:28.434Z'
 is_breadcrumb_visible: true

@@ -2,7 +2,6 @@
 title: String Commands
 is_title_visible: false
 description: ''
-cover_image: 'https://www.bakemyweb.com/preview1/docs.fleare.com/list.png'
 
 date: '2025-06-18T18:55:28.076Z'
 is_breadcrumb_visible: true

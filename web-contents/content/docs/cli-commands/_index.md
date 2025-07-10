@@ -16,7 +16,7 @@ draft: false
 is_summary_visible: true
 is_taxonomy_visible: true
 icon: terminal
-weight: 1000000
+weight: 100000
 ---
 # Fleare CLI Documentation
 

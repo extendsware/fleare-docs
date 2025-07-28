@@ -164,7 +164,7 @@ Ok
 ##### **Output**
 
 ```bash 
-localhost:9219> GET config
+localhost:9219> GET user:123
 ```
 
 ```json 

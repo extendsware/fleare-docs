@@ -20,6 +20,12 @@ This script demonstrates how to use the `fleare` client library to create a conn
 
 #### PING
 
+Sends a PING command to the server and receives a PONG response. Optionally, arguments can be passed which are echoed back after PONG .
+This is commonly used to check if the server is responsive (like a health check or heartbeat).
+
+
+-> [Read More](/docs/cli-commands/ping)
+
 ---
 
 {{< tabs tabTotal="5">}}
@@ -90,6 +96,8 @@ PONG Test 1 2 3
 #### STATUS
 The STATUS is used to retrieve the current state of the server, including server status, uptime, and detailed shard information. It helps users monitor the operational state of the server and its sharding configuration.
 
+-> [Read More](/docs/cli-commands/status)
+
 ---
 
 {{< tabs tabTotal="5">}}
@@ -127,6 +135,286 @@ Output
 }
 ```
 
+
+---
+
+{{% /tab %}}
+{{% tab tabName="Java" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="Python" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="GoLang" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="C#" %}}
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+#### EXISTS
+The EXISTS command is used to verify the existence of one or more keys in the database. It returns the count of keys that exist from the list provided.
+
+-> [Read More](/docs/cli-commands/exists)
+
+---
+
+{{< tabs tabTotal="5">}}
+{{% tab tabName="Node" %}}
+
+Simple use
+```ts
+    const res = await client.exists("key1");
+    console.log(res);
+```
+
+Output
+
+```json
+1
+```
+multi key use
+```ts
+    const res = await client.exists("key1", "key2", "no-key");
+    console.log(res);
+```
+
+Output
+
+```json
+2
+```
+
+
+---
+
+{{% /tab %}}
+{{% tab tabName="Java" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="Python" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="GoLang" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="C#" %}}
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+#### SESSION
+The SESSION command returns the current session information for the authenticated client. It is typically used for diagnostics, auditing, or session lifecycle inspection.
+
+-> [Read More](/docs/cli-commands/session)
+
+---
+
+{{< tabs tabTotal="5">}}
+{{% tab tabName="Node" %}}
+
+Simple use
+```ts
+    const res = await client.session()
+    console.log(res);
+```
+
+Output
+
+```json
+{
+  "created_at": "2025-05-01T17:33:15.497273Z",
+  "last_accessed_at": "2025-05-01T17:33:15.497273Z",
+  "session_id": "8-127.0.0.1:53531",
+  "status": 1,
+  "user": {
+    "Password": "*******",
+    "Role": "Admin",
+    "Username": "admin"
+  }
+}
+```
+
+
+---
+
+{{% /tab %}}
+{{% tab tabName="Java" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="Python" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="GoLang" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="C#" %}}
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+#### SET
+The SET command is used to store a key-value pair in the database. If the key already exists, the value is overwritten. It is a common operation to persist data in memory Database.
+
+-> [Read More](/docs/cli-commands/set)
+
+---
+
+{{< tabs tabTotal="5">}}
+{{% tab tabName="Node" %}}
+
+
+Simple use
+```ts
+const res = await client.set("greetings", "Hello, Welcome to our service! Regards, Team")
+```
+
+Json use 
+```ts
+const res = await client.set("user:123", {
+    "id":123,
+    "name":"Alice",
+    "roles":[
+        "admin",
+        "editor"
+    ]
+})
+console.log(res);
+```
+
+Output empty body
+
+```json
+""
+```
+
+
+---
+
+{{% /tab %}}
+{{% tab tabName="Java" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="Python" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="GoLang" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="C#" %}}
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+#### GET
+The GET command retrieves the value associated with a given key from the in-memory database. If the value is a nested JSON object, an optional path can be provided to extract specific nested fields.
+
+-> [Read More](/docs/cli-commands/get)
+
+---
+
+{{< tabs tabTotal="5">}}
+{{% tab tabName="Node" %}}
+
+
+Simple use
+```ts
+const res = await client.get("user:123");
+console.log(res);
+```
+
+Output body
+
+```json
+{
+    "id":123,
+    "name":"Alice",
+    "roles":[
+        "admin",
+        "editor"
+    ]
+}
+```
+
+Using path
+```ts
+const res = await client.get("user:123", "roles")
+console.log(res);
+```
+
+Output body
+
+```json
+[ "admin", "editor" ]
+```
+
+
+---
+
+{{% /tab %}}
+{{% tab tabName="Java" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="Python" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="GoLang" %}}
+
+
+{{% /tab %}}
+{{% tab tabName="C#" %}}
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+#### DELETE
+The DELETE command is used to remove a key-value pair from the in-memory database. It ensures the specified key is validated, removes it from the appropriate memory shard.
+
+-> [Read More](/docs/cli-commands/delete)
+
+---
+
+{{< tabs tabTotal="5">}}
+{{% tab tabName="Node" %}}
+
+
+Simple use
+```ts
+const res = await client.del("user:123");
+console.log(res);
+```
+
+Output empty body
+
+```json
+""
+```
 
 ---
 

@@ -68,8 +68,6 @@ Output
 ```text
 1
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -83,7 +81,48 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+	res, err := client.TTLExpire("greeting", 20)
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
 
+	fmt.Println(res)
+```
+
+Full Example
+
+```go
+func main() {
+	// Create a client with options
+	client := fleare.CreateClient(&fleare.Options{
+		Host:     "127.0.0.1",
+		Port:     9219,
+		PoolSize: 1,
+	})
+
+	err := client.Connect()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	res, err := client.TTLExpire("greeting", 20)
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+}
+```
+Output
+
+```text
+1
+```
+---
 {{% /tab %}}
 {{% tab tabName="C#" %}}
 
@@ -130,6 +169,20 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+```go
+	res, err := client.TTL("greeting")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+```text
+160
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}

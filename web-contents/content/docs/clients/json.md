@@ -58,8 +58,6 @@ Output
 ```text
 ""
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -73,6 +71,50 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Simple use
+```go
+res, err := client.JsonSet("user-001:devices", map[string]interface{}{"name": "John", "age": 30, "hobbies": []string{"reading", "hiking"}})
+if err != nil {
+  fmt.Println("Error checking existence:", err)
+  return
+}
+
+fmt.Println(res)
+```
+
+Full Example
+
+```go
+func main() {
+	// Create a client with options
+	client := fleare.CreateClient(&fleare.Options{
+		Host:     "127.0.0.1",
+		Port:     9219,
+		PoolSize: 1,
+	})
+
+	err := client.Connect()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	res, err := client.JsonSet("user-001:devices", map[string]interface{}{"name": "John", "age": 30, "hobbies": []string{"reading", "hiking"}})
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+}
+```
+Output
+
+```text
+""
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -113,9 +155,9 @@ Output
 
 ```json
 { 
-  age: 30,
-  hobbies: [ 'reading', 'hiking' ], 
-  name: 'John' 
+  "age": 30,
+  "hobbies": [ "reading", "hiking" ], 
+  "name": "John"
 }
 
 ```
@@ -134,6 +176,30 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Set Data
+```go
+res, err := client.JsonSet("user-001:devices", map[string]interface{}{"name": "John", "age": 30})
+
+```
+Add Element
+```go
+	res, err := client.JsonAdd("user-001:devices", "hobbies", []string{"reading", "hiking"})
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+output
+```json
+{ 
+  "age": 30,
+  "hobbies": [ "reading", "hiking" ], 
+  "name": "John" 
+}
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -165,14 +231,12 @@ Output
 
 ```json
 { 
-  age: 40,
-  hobbies: [ 'reading', 'hiking' ], 
-  name: 'John' 
+  "age": 40,
+  "hobbies": [ "reading", "hiking" ], 
+  "name": "John" 
 }
 
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -186,6 +250,29 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Example:
+```go
+	client.JsonSet("user:001", map[string]interface{}{"name": "John", "age": 30})
+
+	res, err := client.JsonMerge("user:001", map[string]interface{}{"age": 40, "hobbies": []string{"reading", "hiking"}})
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+```
+
+Output
+
+```json
+{ 
+  "age": 40,
+  "hobbies": [ "reading", "hiking" ], 
+  "name": "John" 
+}
+
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -236,6 +323,30 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Example:
+```go
+	client.JsonSet("user:001", map[string]interface{}{"name": "Foo", "active": true, "score": 42})
+
+	res, err := client.JsonRemove("user:001", "active")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Output
+
+```json
+{
+  "name":"Foo",
+  "score":42
+}
+
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -301,6 +412,54 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Example set:
+```go
+	res, err := client.JsonSet("user:001", map[string]interface{}{"name": "Foo", "active": true, "score": 42})
+
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Example setRef
+```go
+res, err := client.JsonSetRef("orders:OD001",
+		map[string]interface{}{"orderId": "orders:OD001", "details": "This order is for a new laptop.", "status": "pending"},
+		map[string]interface{}{"userId": "user:001"})
+
+if err != nil {
+  fmt.Println("Error checking existence:", err)
+  return
+}
+```
+
+```go
+	res, err := client.JsonGet("orders:OD001", "", "userId")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+
+Output
+
+```json
+{
+  "_userId": {"name": "Foo", "active": true, "score": 42},
+  "details": "This order is for a new laptop.",
+  "orderId": "orders:OD001",
+  "status": "pending",
+  "userId": "$ref:users:001"
+}
+
+```
+
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -378,6 +537,73 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Example set:
+```go
+client.JsonSet("user:001", map[string]interface{}{"name":"John","age":30,"hobbies":["reading","hiking"]})
+res, err := client.JsonGet("orders:OD001")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+
+Output
+```json
+{"name":"John","age":30,"hobbies":["reading","hiking"]}
+```
+
+Example with path
+```go
+res, err := client.JsonGet("orders:OD001", "hobbies")
+if err != nil {
+  fmt.Println("Error checking existence:", err)
+  return
+}
+fmt.Println(res)
+```
+
+Output
+```json
+["reading","hiking"]
+```
+
+Example `#ref:`
+```go
+
+	client.JsonSet("user:001", map[string]interface{}{"name": "Foo", "active": true, "score": 42})
+
+	_, err = client.JsonSetRef("orders:OD001",
+		map[string]interface{}{"orderId": "orders:OD001", "details": "This order is for a new laptop.", "status": "pending"},
+		map[string]interface{}{"userId": "user:001"})
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	res, err := client.JsonGet("orders:OD001", "", "userId")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+
+Output
+
+```json
+{
+  "_userId": { "age": 30, "hobbies": [ "reading", "hiking" ], "name": "John" },
+  "details": "This order is for a new laptop.",
+  "orderId": "orders:OD001",
+  "status": "pending",
+  "userId": "$ref:user:001"
+}
+
+```
+
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}

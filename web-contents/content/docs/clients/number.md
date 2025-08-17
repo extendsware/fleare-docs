@@ -58,8 +58,6 @@ Output
 ```text
 ""
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -73,6 +71,49 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Simple use
+```go
+	res, err := client.NumSet("user:1001:balance", 123)
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Full Example
+
+```go
+func main() {
+	// Create a client with options
+	client := fleare.CreateClient(&fleare.Options{
+		Host:     "127.0.0.1",
+		Port:     9219,
+		PoolSize: 1,
+	})
+
+	err := client.Connect()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	res, err := client.NumSet("user:1001:balance", 123)
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+}
+```
+Output
+
+```text
+""
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -105,8 +146,6 @@ Output
 ```text
 12.55
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -120,6 +159,23 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+	res, err := client.NumGet("user:1001:balance")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Output
+
+```text
+12.55
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -154,8 +210,6 @@ Output
 ```text
 22.6
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -169,7 +223,23 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+	res, err := client.NumIncr("user:1001:balance", 10.05)
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
 
+	fmt.Println(res)
+```
+
+Output
+
+```text
+133.05
+```
+---
 {{% /tab %}}
 {{% tab tabName="C#" %}}
 
@@ -203,8 +273,6 @@ Output
 ```text
 18.6
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -218,6 +286,23 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+	res, err := client.NumDecr("user:1001:balance", 5)
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Output
+
+```text
+18.0
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}

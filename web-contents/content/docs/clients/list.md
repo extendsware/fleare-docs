@@ -34,7 +34,7 @@ Simple use
 ```
 Set Multiple items
 ```ts
-    const res = await client.listSet("myList", "First" "Second" "Third");
+    const res = await client.listSet("myList", "First", "Second", "Third");
     console.log(res);
 ```
 
@@ -48,7 +48,7 @@ async function main() {
   try {
     await client.connect();
 
-    const res = await client.listSet("myList", "First" "Second" "Third");
+    const res = await client.listSet("myList", "First", "Second", "Third");
     console.log(res);
 
   } catch (err) {
@@ -63,8 +63,6 @@ Output
 ```text
 3
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -78,6 +76,57 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+  res, err := client.ListSet("myList", "First")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+Set Multiple items
+
+```go
+  res, err := client.ListSet("myList", "First", "Second", "Third")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+
+Full Example
+
+```go
+func main() {
+	// Create a client with options
+	client := fleare.CreateClient(&fleare.Options{
+		Host:     "127.0.0.1",
+		Port:     9219,
+		PoolSize: 1,
+	})
+
+	err := client.Connect()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	res, err := client.ListSet("myList", "First", "Second", "Third")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+}
+```
+Output
+
+```text
+3
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -116,8 +165,6 @@ Output
 ```text
 "This is my first element"
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -131,6 +178,29 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Simple use
+```go
+	res, err := client.ListISet("myList", 2, "This is my first element")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+
+Get item
+```go
+res1, err := client.ListGet("myList", 2)
+	fmt.Println(res1)
+```
+
+Output
+
+```text
+"This is my first element"
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -187,6 +257,31 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+	res, err := client.ListPush("myList", "First")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+Multiple items
+```ts
+	res, err := client.ListPush("myList", "First", "Second", "Third" )
+```
+
+Get item
+```go
+res, err := client.ListGet("myList")
+fmt.Println(res)
+```
+
+Output
+
+```json
+["First" "Second" "Third"]
+```
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -220,8 +315,6 @@ Output
 ```text
 "This is my first element"
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -235,32 +328,14 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
-
-{{% /tab %}}
-{{% tab tabName="C#" %}}
-
-
-{{% /tab %}}
-
-{{< /tabs >}}
-
-
-#### listGPop
-
-The listGPop function return (pops) a single element from the beginning (index 0) of a list stored at a specified key. If the list becomes empty after the pop, the key is removed from the store.
-
-
--> [Read More](/docs/cli-commands/list-commands/list-gpop)
-
----
-
-{{< tabs tabTotal="5">}}
-{{% tab tabName="Node" %}}
-
 Simple use
-```ts
-const res = await client.listGPop("myKey");
-console.log(res);
+```go
+	res, err := client.ListPop("myList")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
 ```
 
 Output
@@ -268,21 +343,7 @@ Output
 ```text
 "This is my first element"
 ```
-
-
 ---
-
-{{% /tab %}}
-{{% tab tabName="Java" %}}
-
-
-{{% /tab %}}
-{{% tab tabName="Python" %}}
-
-
-{{% /tab %}}
-{{% tab tabName="GoLang" %}}
-
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -327,8 +388,6 @@ Output
 ```json
 "This is my first element"
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -342,6 +401,34 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+	res, err := client.ListGet("myList")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+
+Output
+
+```json
+["This is my first element"]
+```
+
+Using index
+```go
+	res, err := client.ListGet("myList", 0)
+	fmt.Println(res)
+```
+
+Output
+
+```json
+"This is my first element"
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -387,7 +474,23 @@ Output
 
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
+Simple use
+```go
+	res, err := client.ListLen("myList")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
 
+Output
+
+```json
+3
+```
+
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -451,6 +554,45 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Set items
+```go
+client.ListSet("myList", 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+```
+
+Simple use
+```go
+res, err := client.ListFind("myList", ":30")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+
+Output
+
+```json
+[30]
+```
+
+Simple use 2
+```ts
+res, err := client.ListFind("myList", ">30")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+```
+
+Output
+
+```json
+[40, 50, 60, 70, 80, 90, 100]
+```
+
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}

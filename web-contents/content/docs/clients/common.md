@@ -83,6 +83,63 @@ PONG Test 1 2 3
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Import
+```go
+import (
+	"github.com/extendsware/fleare-go"
+)
+```
+
+Simple use
+```ts
+    res, err := await client.Ping(["Test", 1, 2, 3]);
+    fmt.Println(res)
+```
+
+Full Example
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/extendsware/fleare-go"
+)
+
+func main() {
+	// Create client
+	client := fleare.CreateClient(&fleare.Options{
+		Host: "127.0.0.1",
+		Port: 9219,
+		Username: "admin",
+		Password: "password",
+		PoolSize: 10,
+	})
+
+	err := client.Connect()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	defer client.Close()
+	// example of getting a value
+	res, err := client.Ping("Test", "1", "2", "3")
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println("Value for 'PING':", res)
+}
+```
+Output
+
+```text
+Value for 'PING': PONG Test 1 2 3
+
+```
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -149,6 +206,47 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+```go
+	res, err := client.Status()
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// parse the res as json
+	jsonBytes, err := json.MarshalIndent(res, "", "  ")
+	if err != nil {
+		fmt.Println("Error marshaling to JSON:", err)
+		return
+	}
+	fmt.Println(string(jsonBytes))
+  ```
+  Output
+
+  ```json
+  {
+  "server_status": "running",
+  "shard_info": {
+    "0": {
+      "ID": "0",
+      "host_address": "localhost:9291",
+      "key_length": 123,
+      "name": "Shard 0",
+      "total_size": "8 bytes"
+    },
+    "1": {
+      "ID": "1",
+      "host_address": "localhost:9291",
+      "key_length": 454,
+      "name": "Shard 1",
+      "total_size": "8 bytes"
+    },
+    "shard_count": 2
+  },
+  "up_time": "2025-06-18T11:30:45.123456789Z"
+}
+```
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -205,7 +303,21 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+```go
+res, err := client.Exists("key1", "key2")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
 
+	fmt.Println(res)
+```
+
+Output
+```text
+2
+```
+---
 {{% /tab %}}
 {{% tab tabName="C#" %}}
 
@@ -245,8 +357,6 @@ Output
   }
 }
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -260,6 +370,39 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Simple use
+```go
+  res, err := client.Session()
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	// parse the res as json
+	jsonBytes, err := json.MarshalIndent(res, "", "  ")
+	if err != nil {
+		fmt.Println("Error marshaling to JSON:", err)
+		return
+	}
+	fmt.Println(string(jsonBytes))
+```
+
+Output
+
+```json
+{
+  "created_at": "2025-05-01T17:33:15.497273Z",
+  "last_accessed_at": "2025-05-01T17:33:15.497273Z",
+  "session_id": "8-127.0.0.1:53531",
+  "status": 1,
+  "user": {
+    "Password": "*******",
+    "Role": "Admin",
+    "Username": "admin"
+  }
+}
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -317,6 +460,36 @@ Output empty body
 
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
+
+
+Simple use
+```go
+res, err := client.Set("greetings", "Hello, Welcome to our service! Regards, Team Fleare")
+```
+
+Json use 
+```go
+	res, err := client.Set("user:123", map[string]interface{}{
+		"id":   123,
+		"name": "Alice",
+		"roles": []string{
+			"admin",
+			"editor",
+		},
+	})
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Output empty body
+
+```json
+""
+```
 
 
 {{% /tab %}}
@@ -384,7 +557,61 @@ Output body
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+```go
 
+	res, err := client.Get("user:123")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	// parse the res as json
+	jsonBytes, err := json.MarshalIndent(res, "", "  ")
+	if err != nil {
+		fmt.Println("Error marshaling to JSON:", err)
+		return
+	}
+	fmt.Println(string(jsonBytes))
+
+```
+Output
+
+```json
+{
+  "id": 123,
+  "name": "Alice",
+  "roles": [
+    "admin",
+    "editor"
+  ]
+}
+```
+
+Using Path
+```go
+	res, err := client.Get("user:123", "roles")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	// parse the res as json
+	jsonBytes, err := json.MarshalIndent(res, "", "  ")
+	if err != nil {
+		fmt.Println("Error marshaling to JSON:", err)
+		return
+	}
+	fmt.Println(string(jsonBytes))
+```
+
+Output
+
+```json
+[ "admin", "editor" ]
+
+```
+
+---
 {{% /tab %}}
 {{% tab tabName="C#" %}}
 
@@ -429,6 +656,13 @@ Output empty body
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+```go
+	res, err := client.Del("user:123")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+  ```
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}

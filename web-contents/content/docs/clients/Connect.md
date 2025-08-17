@@ -179,6 +179,58 @@ main();
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+##### Import
+```go
+import (
+	"fmt"
+
+	"github.com/extendsware/fleare-go"
+)
+```
+
+##### Usage Overview
+```go
+client := fleare.CreateClient(&fleare.Options{
+		Host: "127.0.0.1",
+		Port: 9219,
+		Username: "admin",
+		Password: "password",
+		PoolSize: 10,
+	})
+```
+
+##### Connection Lifecycle
+
+```ts
+client.Connect();
+...
+client.Close();
+```
+##### Connection Events
+
+```go
+go monitorEvents(client)
+```
+
+```go
+func monitorEvents(client *fleare.Client) {
+	for event := range client.Events() {
+		switch event.State {
+		case fleare.StateConnecting:
+			fmt.Println("Event is connecting...")
+		case fleare.StateConnected:
+			fmt.Println("Event connected successfully!")
+		case fleare.StateDisconnecting:
+			fmt.Println("Event Disconnecting")
+		case fleare.StateDisconnected:
+			fmt.Println("Event Disconnected")
+		case fleare.StateError:
+			fmt.Printf("Event error: %v", event.Error)
+		}
+	}
+}
+```
+
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}

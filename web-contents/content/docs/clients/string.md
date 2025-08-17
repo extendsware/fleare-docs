@@ -59,8 +59,6 @@ Output
 ```text
 ""
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -74,6 +72,46 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+res, err := client.StrSet("user:123", "Hello, Welcome to our service! Regards, Team Fleare")
+if err != nil {
+  fmt.Println("Error checking existence:", err)
+  return
+}
+```
+
+Full Example
+
+```go
+func main() {
+	// Create a client with options
+	client := fleare.CreateClient(&fleare.Options{
+		Host:     "127.0.0.1",
+		Port:     9219,
+		PoolSize: 1,
+	})
+
+	err := client.Connect()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	res, err := client.StrSet("user:123", "Hello, Welcome to our service! Regards, Team Fleare")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+	fmt.Println(res)
+}
+```
+Output
+
+```text
+""
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -105,8 +143,6 @@ Output
 ```text
 ""
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -120,6 +156,23 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+res, err := client.StrAppend("greeting", "Hello", " World")
+if err != nil {
+  fmt.Println("Error checking existence:", err)
+  return
+}
+
+fmt.Println(res)
+```
+
+Output
+
+```text
+""
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -151,8 +204,6 @@ Output
 ```text
 World World
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -166,6 +217,23 @@ World World
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+	res, err := client.StrRange("greeting", 0, -1)
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Output
+
+```text
+World World
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -210,6 +278,23 @@ World World
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+	res, err := client.StrGet("greeting")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Output
+
+```text
+World World
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -255,6 +340,23 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Simple use
+```go
+	res, err := client.StrLength("greeting")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Output
+
+```text
+11
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}

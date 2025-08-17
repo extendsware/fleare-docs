@@ -164,15 +164,15 @@ The CLI accepts the following command-line arguments:
 
 | Flag    | Description                 | Default     |
 | ------- | --------------------------- | ----------- |
-| `-host` | Server host address         | `127.0.0.1` |
-| `-port` | Server port                 | `9219`      |
+| `--host` | Server host address         | `127.0.0.1` |
+| `--port` | Server port                 | `9219`      |
 | `-u`    | Username for authentication | Optional    |
 | `-p`    | Password for authentication | Optional    |
 
 Example usage:
 
 ```sh
-fleare-cli -host 192.168.0.1 -port 9219 -u admin -p <secret>
+fleare-cli --host 192.168.0.1 --port 9219 -u admin -p <secret>
 ```
 
 ---

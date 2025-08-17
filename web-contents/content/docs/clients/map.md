@@ -67,8 +67,6 @@ Output
 ```text
 ""
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -82,6 +80,58 @@ Output
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+
+Example:
+```go
+  res, err := client.MapSet("user-001:devices", "device-001", map[string]interface{}{
+		"deviceName":   "Pixel 7 Pro",
+		"osVersion":    "Android 14",
+		"batteryLevel": "85%",
+	})
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Full Example
+
+```go
+func main() {
+	// Create a client with options
+	client := fleare.CreateClient(&fleare.Options{
+		Host:     "127.0.0.1",
+		Port:     9219,
+		PoolSize: 1,
+	})
+
+	err := client.Connect()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	res, err := client.MapSet("user-001:devices", "device-001", map[string]interface{}{
+		"deviceName":   "Pixel 7 Pro",
+		"osVersion":    "Android 14",
+		"batteryLevel": "85%",
+	})
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+}
+```
+Output
+
+```text
+""
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -118,8 +168,6 @@ Output:
 ```text
 ""
 ```
-
-
 ---
 
 {{% /tab %}}
@@ -133,6 +181,27 @@ Output:
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+Example:
+```go
+  res, err := client.MapCSet("user-001:devices", "device-001", map[string]interface{}{
+		"deviceName":   "Pixel 7 Pro",
+		"osVersion":    "Android 14",
+		"batteryLevel": "85%",
+	})
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+
+Output:
+
+```text
+""
+```
+---
 
 {{% /tab %}}
 {{% tab tabName="C#" %}}
@@ -180,7 +249,21 @@ Output:
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+```go
+	res, err := client.MapDel("user-001:devices", "device-001")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
 
+	fmt.Println(res)
+```
+Output:
+
+```text
+""
+```
+---
 {{% /tab %}}
 {{% tab tabName="C#" %}}
 
@@ -254,7 +337,51 @@ Output:
 {{% /tab %}}
 {{% tab tabName="GoLang" %}}
 
+```go
+	res, err := client.MapGet("user-001:devices")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
 
+	fmt.Println(res)
+```
+Output:
+
+```json
+{
+  "device-663abc5352": {
+    "batteryLevel": "75%",
+    "deviceName": "iPhone 14 Pro",
+    "osVersion": "iOS 16"
+  },
+  "device-6d6f6sa66d": {
+    "batteryLevel": "85%",
+    "deviceName": "Pixel 7 Pro",
+    "osVersion": "Android 14"
+  }
+}
+```
+Example with mapKye
+
+```go
+	res, err := client.MapGet("user-001:devices", "device-6d6f6sa66d")
+	if err != nil {
+		fmt.Println("Error checking existence:", err)
+		return
+	}
+
+	fmt.Println(res)
+```
+Output:
+
+```json
+{
+  "batteryLevel": "85%",
+  "deviceName": "Pixel 7 Pro",
+  "osVersion": "Android 14"
+}
+```
 {{% /tab %}}
 {{% tab tabName="C#" %}}
 

@@ -41,9 +41,14 @@ sudo apt update && sudo apt install -y curl unzip
 Download the archive from your preferred source:
 
 ```shell
-curl "https://www.fleare.com/download/binary/fleare-1-0-1-linux-amd64.tar.gz"
+curl -L "https://www.fleare.com/download/binary/fleare-1-0-1-linux-amd64.tar.gz" -o fleare-1-0-1-linux-amd64.tar.gz
 ```
+Or Extract directly
 
+```shell
+curl -L "https://www.fleare.com/download/binary/fleare-1-0-1-linux-amd64.tar.gz" \
+  | tar -xz
+```
 ---
 
 ##### 2. Extract the ZIP File

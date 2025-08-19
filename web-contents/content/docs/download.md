@@ -56,7 +56,8 @@ curl -L "https://www.fleare.com/download/binary/fleare-1-0-1-linux-amd64.tar.gz"
 Unzip the contents to a temporary directory:
 
 ```shell
-unzip fleare-1-0-1-linux-amd64.tar.gz -d fleare_install
+mkdir -p fleare_install
+tar -xvzf fleare-1-0-1-linux-amd64.tar.gz -C fleare_install
 cd fleare_install
 ```
 
